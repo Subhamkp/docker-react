@@ -6,5 +6,6 @@ COPY . .
 RUN npm run build
 
 FROM nginx
+EXPOSE 80
 #copy /app/build from above builder phase and move it to shareable folder (visit nginx docker-hub for more)
 COPY --from=builder /app/build /usr/share/nginx/html

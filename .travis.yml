@@ -8,3 +8,16 @@ before_install:
 
 script:
   - docker run -e CI=true subhamkp/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1" #As per the beanstalk url
+  app: "docker-react" #Beanstalk app name in AWS
+  env: "Dockerreact-env" #Name of the env file created in beanstalk app
+  bucket_name: "elasticbeanstalk-ap-south-1-277020176927" #Specify the name of S3 bucket created automatically on creating beamstalk itself.
+  bucket_path: "docker-react" #It is mostly same as the app name  and folder created inside S3 bucket on first deployment
+  on:
+    branch: master #deploy only when pushed to git master branch 
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
