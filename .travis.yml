@@ -16,7 +16,7 @@ deploy:
   region: "ap-south-1" #As per the beanstalk url
   app: "react-docker-travis" #Beanstalk app name in AWS
   env: "react-docker" #Name of the env file created in beanstalk app
-  bucket_name: "elasticbeanstalk-ap-south-1-277020176927" #Specify the name of S3 bucket created automatically on creating beamstalk itself.
+  bucket_name: "elasticbeanstalk-ap-south-1-277020176927" #Specify the name of the S3 bucket created automatically on creating beamstalk itself.
   bucket_path: "react-docker-travis" #It is mostly same as the app name  and folder created inside S3 bucket on first deployment
   on:
     branch: master #deploy only when pushed to git master branch 
